@@ -1,7 +1,7 @@
 # #CrackYourPlacement
 
 #  Arrays
-Easy	https://leetcode.com/problems/find-the-duplicate-number/
+Easy	https://leetcode.com/problems/find-the-duplicate-number/ 
 Easy	https://leetcode.com/problems/sort-colors/
 Easy	https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 Easy	https://leetcode.com/problems/set-matrix-zeroes/
