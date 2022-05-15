@@ -20,3 +20,12 @@ Output: 4
 Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
 Total profit is 4.
 '''
+
+#Leetcode solution
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        profit = 0
+        for i in range(1, len(prices)):
+            if prices[i]>prices[i-1]:
+                profit+=(prices[i]-prices[i-1])
+        return profit
