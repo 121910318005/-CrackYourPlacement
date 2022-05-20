@@ -34,4 +34,10 @@ class Solution:
               
 #Optimal code with O(n) Time complexity, without changing/ modifying the array.
 ''' Given that array contains numbers within range of 1 to n-1, where n is the length of the array. Here it is 1 <= nums[i] <= n'''
-''' So  
+''' So See readme.md file before understanding the solution approach'''
+arr = list(map(int, input('Enter array: ').split(' ')))
+for i in range(len(arr)):
+ idx = arr[i]-1
+ if arr[idx]<0:
+  print(f'Duplicate Number {idx+1} found at index {i}') 
+  break #Since there is only one duplicate number in array, if there are morethan one duplicate elements in array then use extra space to store the numbers.
