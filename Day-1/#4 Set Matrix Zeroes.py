@@ -32,7 +32,7 @@ class Solution:
                 if j==c:
                     matrix[i][j]=0
         return matrix
-    
+
     def setZeroes(self, matrix: List[List[int]]) -> None:
         l=[] #new list is created for storing the row & column values where zeroes are there
         for i in range(len(matrix)):
@@ -41,3 +41,20 @@ class Solution:
                     l.append((i, j)) #Row index, column index are stored in the list in the form of the tuple.
         for i in range(len(l)):  #Based on the list which contains row indexes and column indexes, operation is performed one by one.
             matrix = self.column_matrix(l[i], matrix)
+
+#Same approach as above code, but changing the way of solving (makes efficient code)
+class Solution:
+    def zerofy(self,p,matrix):
+        matrix[p[0]] = [0] * len(matrix[0])  #matrix[p[0]] represents list[tuple[0]]
+        for i in range(len(matrix)):
+            matrix[i][p[1]] = 0
+        return matrix
+        
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        pos = []
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]==0:
+                    pos.append((i,j))
+        for i in pos:
+            self.zerofy(i,matrix)
