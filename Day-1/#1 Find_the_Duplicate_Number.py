@@ -24,20 +24,22 @@ All the integers in nums appear only once except for precisely one integer which
 '''
 
 #Leet code solution
-#Below code is not optimal because they asked not to modify the array.
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        nums.sort()
-        for i in range(1, len(nums)):
-            if nums[i-1]^nums[i]==0:
-                return nums[i]
+        for i in range(len(nums)):
+            if nums[abs(nums[i])]>0:
+                nums[abs(nums[i])] = -nums[abs(nums[i])]
+            else:
+                return abs(nums[i])
               
 #Optimal code with O(n) Time complexity, without changing/ modifying the array.
 ''' Given that array contains numbers within range of 1 to n-1, where n is the length of the array. Here it is 1 <= nums[i] <= n'''
 ''' So See readme.md file before understanding the solution approach'''
 arr = list(map(int, input('Enter array: ').split(' ')))
 for i in range(len(arr)):
- idx = arr[i]-1
+ idx = abs(arr[i])
  if arr[idx]<0:
-  print(f'Duplicate Number {idx+1} found at index {i}') 
+  print(f'Duplicate Number {idx} found at index {i}') 
   break #Since there is only one duplicate number in array, if there are morethan one duplicate elements in array then use extra space to store the numbers.
+ else:
+  arr[idx] = -arr[idx]
